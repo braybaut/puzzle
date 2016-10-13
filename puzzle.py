@@ -98,7 +98,7 @@ class Puzzle:
  
  
 g = Puzzle()
-g.build_board(int(input('Enter the difficulty : 0 1 2\n2 '
+g.build_board(int(input('Enter the difficulty dificultad: 0 1 2\n2 '
                         '=> highest 0=> lowest\n')))
 g.main_frame()
 print('Enter 0 to exit // salir')
