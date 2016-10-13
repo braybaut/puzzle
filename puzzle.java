@@ -16,7 +16,7 @@ public class puzzle extends JPanel {
     int tam_caja, pos_vacia, margen, tam_cua;
  
     public puzzle() {
-    	ncan=new JLabel("Movimientos: ");
+    	ncan=new JLabel("Movimientos prueba: ");
     	tcan=new JLabel("0");
     	re=new JButton("Nuevo Juego");
     	
