@@ -1,11 +1,11 @@
 from random import randint
- 
- 
+
+
 class Puzzle:
     def __init__(self):
         self.items = {}
         self.position = None
- 
+
     def main_frame(self):
         d = self.items
         print('+-----+-----+-----+-----+')
@@ -17,7 +17,7 @@ class Puzzle:
         print('+-----+-----+-----+-----+')
         print('|%s|%s|%s|%s|' % (d[13], d[14], d[15], d[16]))
         print('+-----+-----+-----+-----+')
- 
+
     def format(self, ch):
         ch = ch.strip()
         if len(ch) == 1:
@@ -26,7 +26,7 @@ class Puzzle:
             return '  ' + ch + ' '
         elif len(ch) == 0:
             return '     '
- 
+
     def change(self, to):
         fro = self.position
         for a, b in self.items.items():
@@ -35,7 +35,7 @@ class Puzzle:
                 break
         self.items[fro], self.items[to] = self.items[to], self.items[fro]
         self.position = to
- 
+
     def build_board(self, difficulty):
         for i in range(1, 17):
             self.items[i] = self.format(str(i))
@@ -58,7 +58,7 @@ class Puzzle:
             for j in lst:
                 lst1.append(int(j.strip()))
             self.change(lst1[randint(0, len(lst1)-1)])
- 
+
     def valid_moves(self):
         pos = self.position
         if pos in [6, 7, 10, 11]:
@@ -83,7 +83,7 @@ class Puzzle:
             return self.items[pos + 1], self.items[pos - 4]
         elif pos == 16:
             return self.items[pos - 1], self.items[pos - 4]
- 
+
     def game_over(self):
         flag = False
         for a, b in self.items.items():
@@ -95,15 +95,15 @@ class Puzzle:
                 else:
                     flag = False
         return flag
- 
- 
+
+
 g = Puzzle()
-g.build_board(int(input('Enter the difficulty dificultad: 0 1 2\n2 '
-                        '=> highest 0=> lowest\n')))
+g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 '
+                        '=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
-print('Enter 0 to exit // salir')
+print('Presiona  0 Para salir')
 while True:
-    print('Hello user:\nTo change the position just enter the no. near it')
+    print('Hello :\nPara cambiar la posición, introduce el numero, cerca de este.')
     lst = g.valid_moves()
     lst1 = []
     for i in lst:
@@ -114,11 +114,10 @@ while True:
     if x == 0:
         break
     elif x not in lst1:
-        print('Wrong move')
+        print('Movimiento incorrecto')
     else:
         g.change(x)
     g.main_frame()
     if g.game_over():
-        print('You WON')
+        print('Ganaste')
         break
- 
