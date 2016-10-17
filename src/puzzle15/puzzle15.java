@@ -7,65 +7,27 @@ import javax.swing.*;
 public class puzzle15 extends JPanel {
     final static int num_cajas = 15;
     final static int lado = 4;
-    private JLabel ncan,tcan;
-    private int con=0,fo=0;
-    private JButton re;
+    public JLabel ncan,tcan;
+    public int con=0,fo=0;
+    public JButton re;
  
     int[] cajas = new int[num_cajas+ 1];
-    int tam_caja, pos_vacia, margen, tam_cua;
+    int tam_caja, pos_vacia, tam_cua;
  
     public puzzle15() {
     	ncan=new JLabel("Movimientos: ");
     	tcan=new JLabel("0");
     	re=new JButton("Nuevo Juego");
     	
-        final int dim = 640;
+        tam_caja=480/lado;
+        tam_cua=tam_caja*lado;
  
-        margen = 80;
-        tam_caja = (dim - 2 * margen) / lado;
-        tam_cua = tam_caja * lado;
- 
-        setPreferredSize(new Dimension(dim, dim));
+        setPreferredSize(new Dimension(480, 530));
         setBackground(new Color(0x909c95));
         setForeground(new Color(0x356248)); 
         setFont(new Font("SansSerif", Font.BOLD, 60));
  
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int ex = e.getX() - margen;
-                int ey = e.getY() - margen;
- 
-                if (ex < 0 || ex > tam_cua || ey < 0 || ey > tam_cua)
-                    return;
- 
-                int c1 = ex / tam_caja;
-                int r1 = ey / tam_caja;
-                int c2 = pos_vacia % lado;
-                int r2 = pos_vacia / lado;
- 
-                if ((c1 == c2 && Math.abs(r1 - r2) == 1)
-                        || (r1 == r2 && Math.abs(c1 - c2) == 1)) {
- 
-                    int pos_clic = r1 * lado + c1;
-                    cajas[pos_vacia] = cajas[pos_clic];
-                    cajas[pos_clic] = 0;
-                    pos_vacia = pos_clic;
-                    con++;
-                    tcan.setText(""+con);
-                }
-                for(int i=0;i<15;i++){
-                if(cajas[i]==i+1){
-                	fo++;                	
-                	}
-                }
-                if(fo==15){
-                	JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado");
-                }
-                fo=0;
-                repaint();
-            }
-        });
+        addMouseListener(new accion_clic(this));
         
         re.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
@@ -94,8 +56,8 @@ public class puzzle15 extends JPanel {
  
             int r = i / lado;
             int c = i % lado;
-            int x = margen + c * tam_caja;
-            int y = margen + r * tam_caja;
+            int x =  + c * tam_caja;
+            int y = 50 + r * tam_caja;
  
             g.setColor(getForeground());
             g.fillRoundRect(x, y, tam_caja, tam_caja, 25, 25);
@@ -127,16 +89,4 @@ public class puzzle15 extends JPanel {
         drawGrid(g);
     }
  
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame f = new JFrame();
-            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            f.setTitle("Puzzle 15");
-            f.setResizable(false);
-            f.add(new puzzle15(), BorderLayout.CENTER);
-            f.pack();
-            f.setLocationRelativeTo(null);
-            f.setVisible(true);
-        });
-    }
 }
