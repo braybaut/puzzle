@@ -11,7 +11,6 @@ public class puzzle15 extends JPanel {
     private int con=0,fo=0;
     private JButton re;
  
-    Random rand = new Random();
     int[] cajas = new int[num_cajas+ 1];
     int tam_caja, pos_vacia, margen, tam_cua;
  
@@ -81,36 +80,13 @@ public class puzzle15 extends JPanel {
     }
      
     final void barajar() {
-        do {
-            reiniciar();
-            int n = num_cajas;
-            while (n > 1) {
-                int r = rand.nextInt(n--);
-                int tmp = cajas[r];
-                cajas[r] = cajas[n];
-                cajas[n] = tmp;
-            }
-        } while (!solucionado());
-    }
- 
-    void reiniciar() {
-        for (int i = 0; i < cajas.length; i++){
-            cajas[i] = (i + 1) % cajas.length;
+        for(int i=0;i<cajas.length-1;i++){
+        	cajas[i]=i+1;
         }
-        pos_vacia = num_cajas;
+        pos_vacia=16;
     }
  
-    boolean solucionado() {
-        int cont = 0;
-        for (int i = 0; i < num_cajas; i++) {
-            for (int j = 0; j < i; j++) {
-                if (cajas[j] > cajas[i])
-                    cont++;
-            }
-        }
-        return cont % 2 == 0;
-    }
- 
+     
     void drawGrid(Graphics2D g) {
         for (int i = 0; i < cajas.length; i++) {
             if (cajas[i] == 0)
