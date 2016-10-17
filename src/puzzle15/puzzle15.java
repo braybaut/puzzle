@@ -9,7 +9,6 @@ public class puzzle15 extends JPanel {
     final static int lado = 4;
     public JLabel ncan,tcan;
     public int con=0,fo=0;
-    public JButton re;
  
     int[] cajas = new int[num_cajas+ 1];
     int tam_caja, pos_vacia, tam_cua;
@@ -17,7 +16,6 @@ public class puzzle15 extends JPanel {
     public puzzle15() {
     	ncan=new JLabel("Movimientos: ");
     	tcan=new JLabel("0");
-    	re=new JButton("Nuevo Juego");
     	
         tam_caja=480/lado;
         tam_cua=tam_caja*lado;
@@ -29,15 +27,7 @@ public class puzzle15 extends JPanel {
  
         addMouseListener(new accion_clic(this));
         
-        re.addActionListener(new ActionListener(){
-        	public void actionPerformed(ActionEvent e){
-        		con=0;
-        		tcan.setText(""+con);
-        		 barajar();
-        		 repaint();
-        	}
-        });
-        add(ncan);add(tcan);add(re);
+        add(ncan);add(tcan);
         barajar();
     }
      
@@ -45,7 +35,9 @@ public class puzzle15 extends JPanel {
         for(int i=0;i<cajas.length-1;i++){
         	cajas[i]=i+1;
         }
-        pos_vacia=16;
+        
+        pos_vacia=15;
+        repaint();
     }
  
      
@@ -54,10 +46,10 @@ public class puzzle15 extends JPanel {
             if (cajas[i] == 0)
                 continue;
  
-            int r = i / lado;
-            int c = i % lado;
-            int x =  + c * tam_caja;
-            int y = 50 + r * tam_caja;
+            int r=i/ lado;
+            int c=i%lado;
+            int x=c*tam_caja;
+            int y=50+r*tam_caja;
  
             g.setColor(getForeground());
             g.fillRoundRect(x, y, tam_caja, tam_caja, 25, 25);

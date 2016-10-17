@@ -11,7 +11,7 @@ public class accion_clic extends MouseAdapter{
 		int ex = e.getX();
         int ey = e.getY() - 50;
 
-        if (ex < 0 || ex > puzzle.tam_cua || ey < 0 || ey > puzzle.tam_cua)
+        if (ey < 0 || ey > puzzle.tam_cua)
             return;
 
         int c1 = ex / puzzle.tam_caja;
@@ -29,14 +29,14 @@ public class accion_clic extends MouseAdapter{
             puzzle.con++;
             puzzle.tcan.setText(""+puzzle.con);
         }
-        for(int i=0;i<15;i++){
+        /*for(int i=0;i<15;i++){
         if(puzzle.cajas[i]==i+1){
         	puzzle.fo++;                	
         	}
         }
         if(puzzle.fo==15){
         	JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado");
-        }
+        }*/
         puzzle.fo=0;
         puzzle.repaint();
 	}
