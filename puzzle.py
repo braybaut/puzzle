@@ -36,6 +36,26 @@ class Puzzle:
         self.items[fro], self.items[to] = self.items[to], self.items[fro]
         self.position = to
 
+    def build_board_manual(self):
+        i = 1
+        while i < 17:
+            pos = input("Digite el número que va en la posición {} \n".format(i))
+            try:
+                pos = int(pos)
+                if pos > 0 and pos < 17:
+                    if pos == 16:
+                        self.items[i] = '     '
+                        self.position = i
+                    else:
+                        self.items[i] = self.format(str(pos))
+                    i += 1
+                else:
+                    print("número invalido rango {} en {}".format(pos, i))
+                    print("i: {}".format(i))
+            except:
+                print("número invalido tipo {} en {}".format(pos, i))
+                print("i: {}".format(i))
+
     def build_board(self, difficulty):
         for i in range(1, 17):
             self.items[i] = self.format(str(i))
@@ -87,19 +107,24 @@ class Puzzle:
     def game_over(self):
         flag = False
         for a, b in self.items.items():
+            print("a: {} - b: {}".format(a, b.strip()))
             if b == '     ':
-                pass
-            else:
-                if a == int(b.strip()):
+                if a == 16:
                     flag = True
                 else:
                     flag = False
+                    break
+            elif a == int(b.strip()):
+                flag = True
+            else:
+                flag = False
+                break
         return flag
 
 
 g = Puzzle()
-g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 '
-                        '=> Mas alto     0=> Mas bajo\n')))
+g.build_board_manual()
+#g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
 print('Presiona  0 Para salir')
 while True:
