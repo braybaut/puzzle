@@ -11,6 +11,7 @@ public class boton_iniciar extends JPanel{
 		
 		iniciar.setBounds(100, 30, 140, 30);
 		
+		
 		add(iniciar);
 	}
 }

@@ -11,7 +11,8 @@ public class puzzle15 extends JPanel {
     public int con=0,fo=0;
  
     int[] cajas = new int[num_cajas+ 1];
-    int tam_caja, pos_vacia, tam_cua;
+	int[] gana = new int[num_cajas+ 1];
+    int tam_caja, pos_vacia, tam_cua,pos_gan;
  
     public puzzle15() {
     	ncan=new JLabel("Movimientos: ");
@@ -28,16 +29,29 @@ public class puzzle15 extends JPanel {
         addMouseListener(new accion_clic(this));
         
         add(ncan);add(tcan);
-        barajar();
     }
      
-    final void barajar() {
-        for(int i=0;i<cajas.length-1;i++){
-        	cajas[i]=i+1;
-        }
-        
-        pos_vacia=15;
-        repaint();
+    final void barajar(int[] arrini) {        
+    	
+		for(int i=0;i<cajas.length;i++){
+			cajas[i]=arrini[i];
+			if(arrini[i]==0){
+				pos_vacia=i;
+			}
+		}
+		repaint();
+		con=0;
+		tcan.setText("0");
+		        
+}
+
+    public void ganar(int[] arrfin){
+    	for(int i=0;i<gana.length;i++){
+    		gana[i]=arrfin[i];
+    		if(arrfin[i]==0){
+    			pos_gan=i;
+    		}
+    	}
     }
  
      

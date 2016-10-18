@@ -1,13 +1,18 @@
 package puzzle15;
-import java.awt.BorderLayout;
+import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class frame_puzzle extends JFrame{
+	puzzle15 puz;
+	puzzle_inicial puzi;
+	puzzle_final puzf;
+	boton_iniciar bi;
 	public frame_puzzle(){
-		puzzle15 puz=new puzzle15();
-		puzzle_inicial puzi=new puzzle_inicial();
-		puzzle_final puzf=new puzzle_final();
-		boton_iniciar bi=new boton_iniciar();
+		puz=new puzzle15();
+		puzi=new puzzle_inicial();
+		puzf=new puzzle_final();
+		bi=new boton_iniciar();
 		
 		JPanel izq=new JPanel();
 		izq.setLayout(new BoxLayout(izq, BoxLayout.Y_AXIS));
@@ -22,6 +27,8 @@ public class frame_puzzle extends JFrame{
         pack();
         
         setLocationRelativeTo(null);
+        
+        bi.iniciar.addActionListener(new accion_boton(this));
 		
 	}
 }
