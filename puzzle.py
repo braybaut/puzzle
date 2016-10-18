@@ -1,3 +1,5 @@
+import time
+import datetime
 from random import randint
 
 
@@ -123,9 +125,10 @@ class Puzzle:
 
 
 g = Puzzle()
-g.build_board_manual()
-#g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
+#g.build_board_manual()
+g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
+init_time = time.time()
 print('Presiona  0 Para salir')
 while True:
     print('Hello :\nPara cambiar la posición, introduce el numero, cerca de este.')
@@ -144,5 +147,8 @@ while True:
         g.change(x)
     g.main_frame()
     if g.game_over():
+        end_time = time.time()
         print('Ganaste')
+        total_time = end_time - init_time
+        print("Tiempo total: {} segundos".format(total_time))
         break
