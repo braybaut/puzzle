@@ -26,8 +26,6 @@ public class puzzle15 extends JPanel {
         setForeground(new Color(0x356248)); 
         setFont(new Font("SansSerif", Font.BOLD, 60));
  
-        addMouseListener(new accion_clic(this));
-        
         add(ncan);add(tcan);
     }
      

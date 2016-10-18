@@ -27,7 +27,7 @@ public class frame_puzzle extends JFrame{
         pack();
         
         setLocationRelativeTo(null);
-        
+        puz.addMouseListener(new accion_clic(this));
         bi.iniciar.addActionListener(new accion_boton(this));
 		
 	}
