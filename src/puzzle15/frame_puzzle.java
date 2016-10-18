@@ -4,9 +4,13 @@ import javax.swing.*;
 
 public class frame_puzzle extends JFrame{
 	public frame_puzzle(){
+		puzzle15 puz=new puzzle15();
+		puzzle_inicial puzi=new puzzle_inicial();
 		setTitle("Puzzle 15");
         setResizable(false);
-        add(new puzzle15(), BorderLayout.CENTER);
+        add(puz,BorderLayout.CENTER);
+        pack();
+        add(puzi,BorderLayout.WEST);
         pack();
         setLocationRelativeTo(null);
 		
