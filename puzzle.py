@@ -125,8 +125,8 @@ class Puzzle:
 
 
 g = Puzzle()
-#g.build_board_manual()
-g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
+g.build_board_manual()
+#g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
 init_time = time.time()
 print('Presiona  0 Para salir')
