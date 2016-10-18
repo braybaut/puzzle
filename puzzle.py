@@ -131,7 +131,7 @@ g.main_frame()
 init_time = time.time()
 print('Presiona  0 Para salir')
 while True:
-    print('Hello :\nPara cambiar la posición, introduce el numero, cerca de este.')
+    print('Hola :\nPara cambiar la posición, introduce el numero, cerca de este.')
     lst = g.valid_moves()
     lst1 = []
     for i in lst:
