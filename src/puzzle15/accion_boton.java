@@ -99,6 +99,7 @@ public class accion_boton implements ActionListener{
 			if(b){	
 		        panel.puz.barajar(arrini);
 		        panel.puz.ganar(arrfin);
+		        panel.mov.tmov.setText("0");
 				
 			}
 			

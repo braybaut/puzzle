@@ -7,7 +7,6 @@ import javax.swing.*;
 public class puzzle15 extends JPanel {
     final static int num_cajas = 15;
     final static int lado = 4;
-    public JLabel ncan,tcan;
     public int con=0,fo=0;
  
     int[] cajas = new int[num_cajas+ 1];
@@ -15,18 +14,16 @@ public class puzzle15 extends JPanel {
     int tam_caja, pos_vacia, tam_cua,pos_gan;
  
     public puzzle15() {
-    	ncan=new JLabel("Movimientos: ");
-    	tcan=new JLabel("0");
-    	
+    	   	
         tam_caja=480/lado;
         tam_cua=tam_caja*lado;
  
-        setPreferredSize(new Dimension(480, 530));
+        setPreferredSize(new Dimension(480, 480));
         setBackground(new Color(0x909c95));
         setForeground(new Color(0x356248)); 
         setFont(new Font("SansSerif", Font.BOLD, 60));
  
-        add(ncan);add(tcan);
+        
     }
      
     final void barajar(int[] arrini) {        
@@ -39,7 +36,6 @@ public class puzzle15 extends JPanel {
 		}
 		repaint();
 		con=0;
-		tcan.setText("0");
 		        
 }
 
@@ -61,7 +57,7 @@ public class puzzle15 extends JPanel {
             int r=i/ lado;
             int c=i%lado;
             int x=c*tam_caja;
-            int y=50+r*tam_caja;
+            int y=r*tam_caja;
  
             g.setColor(getForeground());
             g.fillRoundRect(x, y, tam_caja, tam_caja, 25, 25);
