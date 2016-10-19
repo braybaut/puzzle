@@ -8,6 +8,7 @@ public class ayuda extends JPanel{
 	public JLabel nayu,tayu;
 	public ayuda(){
 		setPreferredSize(new Dimension(350, 140));
+		setLayout(null);
 		setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Ayuda"));
 		
 		nayu=new JLabel("Puedes mover la ficha:");

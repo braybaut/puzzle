@@ -10,6 +10,7 @@ public class frame_puzzle extends JFrame{
 	boton_iniciar bi;
 	ayuda ay;
 	movimientos mov;
+	accion_clic ac;
 	public frame_puzzle(){
 		puz=new puzzle15();
 		puzi=new puzzle_inicial();
@@ -17,6 +18,7 @@ public class frame_puzzle extends JFrame{
 		bi=new boton_iniciar();
 		ay=new ayuda();
 		mov=new movimientos();
+		ac=new accion_clic(this);
 		
 		JPanel izq=new JPanel();
 		izq.setLayout(new BoxLayout(izq, BoxLayout.Y_AXIS));
@@ -37,7 +39,7 @@ public class frame_puzzle extends JFrame{
         pack();
         
         setLocationRelativeTo(null);
-        puz.addMouseListener(new accion_clic(this));
+        puz.addMouseListener(ac);
         bi.iniciar.addActionListener(new accion_boton(this));
 		
 	}

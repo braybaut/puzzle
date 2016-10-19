@@ -100,6 +100,8 @@ public class accion_boton implements ActionListener{
 		        panel.puz.barajar(arrini);
 		        panel.puz.ganar(arrfin);
 		        panel.mov.tmov.setText("0");
+		        panel.ay.tayu.setText("");
+		        panel.ac.ayuda();
 				
 			}
 			

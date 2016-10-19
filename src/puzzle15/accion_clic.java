@@ -1,14 +1,18 @@
 package puzzle15;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Random;
 
 public class accion_clic extends MouseAdapter{
 	frame_puzzle puzzle;
-	public int pos0,fic;
+	public int pos0,ale;
+	private Random rand=new Random();
+	private boolean b;
 	public accion_clic(frame_puzzle puzzle){
 		this.puzzle=puzzle;
 	}
 	public void mousePressed(MouseEvent e){
+		
 		int ex = e.getX();
         int ey = e.getY();
 
@@ -30,27 +34,118 @@ public class accion_clic extends MouseAdapter{
             puzzle.puz.con++;
             puzzle.mov.tmov.setText(""+puzzle.puz.con);
         }
-        //-----   Ayuda   -----------------------------------------------------------------------------------
-        for(int i=0;i<puzzle.puz.cajas.length;i++){
-        	if(puzzle.puz.cajas[i]==0){
-        		pos0=i;
-        	}
-        }
-        
-        //---------------------------------------------------------------------------------------------------
-        //-----   Verificación de Juego terminado -----------------------------------------------------------
-        for(int i=0;i<16;i++){
+        ayuda();
+        verifica();
+
+        puzzle.repaint();
+	}
+	
+	public void verifica(){
+		for(int i=0;i<puzzle.puz.cajas.length;i++){
             if(puzzle.puz.cajas[i]==puzzle.puz.gana[i]){
             	puzzle.puz.fo++;                	
             	}            
         }
-            if(puzzle.puz.fo==16){
-            	JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimientos","GANASTE",1);            	
+            if(puzzle.puz.fo==16){            	
+            	if(puzzle.puz.con==1){
+            		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimiento","GANASTE",1);            	
+            	}else{
+            		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimientos","GANASTE",1);
+            	}
+            	
             	puzzle.puz.barajar(puzzle.puz.cajas);
             	puzzle.mov.tmov.setText(""+puzzle.puz.con);
             }
         puzzle.puz.fo=0;
-        //-----------------------------------------------------------------------------------------------------
-        puzzle.repaint();
+	}
+	
+	public void ayuda(){
+		b=true;
+		for(int i=0;i<puzzle.puz.cajas.length;i++){
+        	if(puzzle.puz.cajas[i]==0){
+        		pos0=i;
+        	}
+        }
+        if(pos0==0){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==3){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==12){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0-4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==15){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0-4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==1 || pos0==2){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==4 || pos0==8){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==7 || pos0==11){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==13 || pos0==14){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+1]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
+        if(pos0==5 || pos0==6 || pos0==9 || pos0==10){
+        	while(b){
+        		ale=rand.nextInt(puzzle.puz.cajas.length);
+        		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
+        			b=false;
+        		}
+        	}
+        	puzzle.ay.tayu.setText("" + ale);
+        }
 	}
 }
