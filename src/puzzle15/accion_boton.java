@@ -54,7 +54,7 @@ public class accion_boton implements ActionListener{
 			
 			for(int i=0;i<arrini.length;i++){
 				if(arrini[i]>15){
-					JOptionPane.showMessageDialog(null, "No se admiten números mayores a 15\nPosición: "+(i+1),"ERROR",0);
+					JOptionPane.showMessageDialog(null, "No se admiten números mayores a 15\nPuzzle inicial. Posición: "+(i+1),"ERROR",0);
 					b=false;
 					continue;
 				}
@@ -90,7 +90,7 @@ public class accion_boton implements ActionListener{
 			
 			for(int i=0;i<arrfin.length;i++){
 				if(arrfin[i]>15){
-					JOptionPane.showMessageDialog(null, "No se admiten números mayores a 15\nPosición: "+(i+1),"ERROR",0);
+					JOptionPane.showMessageDialog(null, "No se admiten números mayores a 15\nPuzzle final. Posición: "+(i+1),"ERROR",0);
 					b=false;
 					continue;
 				}

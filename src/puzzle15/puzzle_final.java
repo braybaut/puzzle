@@ -1,5 +1,6 @@
 package puzzle15;
 import javax.swing.*;
+
 import java.awt.*;
 
 public class puzzle_final extends JPanel{
@@ -77,6 +78,23 @@ public class puzzle_final extends JPanel{
 		lf13.setBounds(90, 120, 30, 20);
 		lf14.setBounds(170, 120, 30, 20);
 		lf15.setBounds(250, 120, 30, 20);
+		
+		tf0.addKeyListener(new numeros());
+		tf1.addKeyListener(new numeros());
+		tf2.addKeyListener(new numeros());
+		tf3.addKeyListener(new numeros());
+		tf4.addKeyListener(new numeros());
+		tf5.addKeyListener(new numeros());
+		tf6.addKeyListener(new numeros());
+		tf7.addKeyListener(new numeros());
+		tf8.addKeyListener(new numeros());
+		tf9.addKeyListener(new numeros());
+		tf10.addKeyListener(new numeros());
+		tf11.addKeyListener(new numeros());
+		tf12.addKeyListener(new numeros());
+		tf13.addKeyListener(new numeros());
+		tf14.addKeyListener(new numeros());
+		tf15.addKeyListener(new numeros());
 		
 		add(lf0);add(lf1);add(lf2);add(lf3);add(lf4);add(lf5);add(lf6);add(lf7);
 		add(lf8);add(lf9);add(lf10);add(lf11);add(lf12);add(lf13);add(lf14);add(lf15);

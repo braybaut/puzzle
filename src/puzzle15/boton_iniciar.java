@@ -9,8 +9,7 @@ public class boton_iniciar extends JPanel{
 		setLayout(null);
 		iniciar=new JButton("Empezar Juego");
 		
-		iniciar.setBounds(100, 30, 140, 30);
-		
+		iniciar.setBounds(100, 30, 140, 30);		
 		
 		add(iniciar);
 	}
