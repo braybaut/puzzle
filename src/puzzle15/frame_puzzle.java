@@ -41,6 +41,40 @@ public class frame_puzzle extends JFrame{
         setLocationRelativeTo(null);
         puz.addMouseListener(ac);
         bi.iniciar.addActionListener(new accion_boton(this));
+        
+        puzi.t0.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t1.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t2.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t3.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t4.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t5.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t6.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t7.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t8.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t9.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t10.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t11.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t12.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t13.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t14.addFocusListener(new seleccion_cajastexto(this));
+        puzi.t15.addFocusListener(new seleccion_cajastexto(this));
+        
+        puzf.tf0.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf1.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf2.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf3.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf4.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf5.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf6.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf7.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf8.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf9.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf10.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf11.addFocusListener(new seleccion_cajastexto(this));        
+        puzf.tf12.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf13.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf14.addFocusListener(new seleccion_cajastexto(this));
+        puzf.tf15.addFocusListener(new seleccion_cajastexto(this));
 		
 	}
 }

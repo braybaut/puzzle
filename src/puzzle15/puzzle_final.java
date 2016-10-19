@@ -1,7 +1,8 @@
 package puzzle15;
 import javax.swing.*;
-
+import java.awt.event.*;
 import java.awt.*;
+import java.awt.event.FocusAdapter;
 
 public class puzzle_final extends JPanel{
 	public JTextField tf0,tf1,tf2,tf3,tf4,tf5,tf6,tf7,tf8,tf9,tf10,tf11,tf12,tf13,tf14,tf15;
