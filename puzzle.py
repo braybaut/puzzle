@@ -1,5 +1,6 @@
 import time
 import datetime
+import os
 from random import randint
 
 
@@ -124,6 +125,7 @@ class Puzzle:
         return flag
 
 
+os.system('clear')
 g = Puzzle()
 
 typeboard = {'1': g.build_board_manual, '2': g.build_board}
@@ -134,12 +136,15 @@ while flag2:
         board=typeboard[option]
         if option=='2':
             board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
+            os.system('clear')
             break
         else:
             board()
+            os.system('clear')
             break
     except:
-        print ('opcion incorrecta vuelva a intentar')
+        input('opcion incorrecta vuelva a intentar')
+        os.system('clear')
 #g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
 init_time = time.time()
