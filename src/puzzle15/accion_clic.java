@@ -34,10 +34,9 @@ public class accion_clic extends MouseAdapter{
             puzzle.puz.con++;
             puzzle.mov.tmov.setText(""+puzzle.puz.con);
         }
+        puzzle.repaint();
         ayuda();
         verifica();
-
-        puzzle.repaint();
 	}
 	
 	public void verifica(){
@@ -46,7 +45,8 @@ public class accion_clic extends MouseAdapter{
             	puzzle.puz.fo++;                	
             	}            
         }
-            if(puzzle.puz.fo==16){            	
+            if(puzzle.puz.fo==16){
+            	puzzle.ay.tayu.setText("");
             	if(puzzle.puz.con==1){
             		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimiento","GANASTE",1);            	
             	}else{
@@ -55,6 +55,7 @@ public class accion_clic extends MouseAdapter{
             	
             	puzzle.puz.barajar(puzzle.puz.cajas);
             	puzzle.mov.tmov.setText(""+puzzle.puz.con);
+            	
             }
         puzzle.puz.fo=0;
 	}

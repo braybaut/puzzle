@@ -9,6 +9,7 @@ public class accion_boton implements ActionListener{
 	public int[] arrfin=new int[16];
 	boolean b;
 	frame_puzzle panel;
+	private int c;
 	public accion_boton(frame_puzzle panel){
 		this.panel=panel;
 	}
@@ -95,6 +96,16 @@ public class accion_boton implements ActionListener{
 					continue;
 				}
 			}
+			for(int i=0;i<panel.puz.cajas.length;i++){
+		        if(arrini[i]==arrfin[i]){
+		        	c++;
+		        	}
+		        }
+		        if(c==16){
+		        	JOptionPane.showMessageDialog(null, "Los puzzles no pueden ser idénticos","ERROR",0);
+		        	b=false;
+		        }
+		        c=0;
 			
 			if(b){	
 		        panel.puz.barajar(arrini);
