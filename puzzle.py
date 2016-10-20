@@ -127,15 +127,19 @@ class Puzzle:
 g = Puzzle()
 
 typeboard = {'1': g.build_board_manual, '2': g.build_board}
-option=input("1 si quiere el tablero manual o 2 si quiere el tablero automatico:  ")
-try:
-    board=typeboard[option]
-    if option=='2':
-        board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
-    else:
-        board()
-except:
-    print ('opcion incorrecta')
+flag2 = True
+while flag2:
+    option=input("1 si quiere el tablero manual o 2 si quiere el tablero automatico:  ")
+    try:
+        board=typeboard[option]
+        if option=='2':
+            board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
+            break
+        else:
+            board()
+            break
+    except:
+        print ('opcion incorrecta vuelva a intentar')
 #g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
 init_time = time.time()
