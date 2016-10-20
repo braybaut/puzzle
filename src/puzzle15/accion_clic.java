@@ -73,84 +73,134 @@ public class accion_clic extends MouseAdapter{
         		pos0=i;
         	}
         }
+		
         if(pos0==0){
+        	if(puzzle.puz.cajas[pos0+1]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0+4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==3){
+        	if(puzzle.puz.cajas[pos0-1]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0+4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==12){
+        	if(puzzle.puz.cajas[pos0+1]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0-4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0-4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==15){
+        	if(puzzle.puz.cajas[pos0-1]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0-4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0-4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==1 || pos0==2){
+        	if(puzzle.puz.cajas[pos0-1]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0+1]==puzzle.puz.gana[pos0] 
+        			|| puzzle.puz.cajas[pos0+4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==4 || pos0==8){
+        	if(puzzle.puz.cajas[pos0-4]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0+1]==puzzle.puz.gana[pos0] 
+        			|| puzzle.puz.cajas[pos0+4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==7 || pos0==11){
+        	if(puzzle.puz.cajas[pos0-4]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0-1]==puzzle.puz.gana[pos0] 
+        			|| puzzle.puz.cajas[pos0+4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+4]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        	
         if(pos0==13 || pos0==14){
+        	if(puzzle.puz.cajas[pos0-4]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0-1]==puzzle.puz.gana[pos0] 
+        			|| puzzle.puz.cajas[pos0+1]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+1]==ale){
         			b=false;
         		}
         	}
+        	}
         	puzzle.ay.tayu.setText("" + ale);
         }
+        
         if(pos0==5 || pos0==6 || pos0==9 || pos0==10){
+        	if(puzzle.puz.cajas[pos0-4]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0-1]==puzzle.puz.gana[pos0] 
+        			|| puzzle.puz.cajas[pos0+1]==puzzle.puz.gana[pos0] || puzzle.puz.cajas[pos0+4]==puzzle.puz.gana[pos0]){
+        		ale=puzzle.puz.gana[pos0];
+        	}else{
         	while(b){
         		ale=rand.nextInt(puzzle.puz.cajas.length);
         		if(puzzle.puz.cajas[pos0-4]==ale || puzzle.puz.cajas[pos0-1]==ale || puzzle.puz.cajas[pos0+1]==ale || puzzle.puz.cajas[pos0+4]==ale){
         			b=false;
         		}
+        	}
         	}
         	puzzle.ay.tayu.setText("" + ale);
         }
