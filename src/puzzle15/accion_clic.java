@@ -48,13 +48,19 @@ public class accion_clic extends MouseAdapter{
             if(puzzle.puz.fo==16){
             	puzzle.ay.tayu.setText("");
             	if(puzzle.puz.con==1){
-            		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimiento","GANASTE",1);            	
+            		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimiento"
+            				+ "\nEn un tiempo de "+puzzle.ti.hor+"H-"+puzzle.ti.min+"M-"+puzzle.ti.seg+"S","GANASTE",1);            	
             	}else{
-            		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimientos","GANASTE",1);
+            		JOptionPane.showMessageDialog(null, "¡Felicitaciones! Has ganado\nLo has logrado en "+puzzle.puz.con+" movimientos"
+            				+ "\nEn un tiempo de "+puzzle.ti.hor+"H-"+puzzle.ti.min+"M-"+puzzle.ti.seg+"S","GANASTE",1);
             	}
             	
             	puzzle.puz.barajar(puzzle.puz.cajas);
             	puzzle.mov.tmov.setText(""+puzzle.puz.con);
+            	puzzle.puz.barajar(puzzle.bot.arrini);
+            	ayuda();
+            	puzzle.ti.reiniciar();
+            	
             	
             }
         puzzle.puz.fo=0;

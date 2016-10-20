@@ -13,6 +13,7 @@ public class frame_puzzle extends JFrame{
 	accion_clic ac;
 	evento_random ran;
 	accion_boton bot;
+	tiempo ti;
 	public frame_puzzle(){
 		puz=new puzzle15();
 		puzi=new puzzle_inicial();
@@ -23,6 +24,7 @@ public class frame_puzzle extends JFrame{
 		ac=new accion_clic(this);
 		ran=new evento_random(this);
 		bot=new accion_boton(this);
+		ti=new tiempo();
 		
 		JPanel izq=new JPanel();
 		izq.setLayout(new BoxLayout(izq, BoxLayout.Y_AXIS));
@@ -33,6 +35,7 @@ public class frame_puzzle extends JFrame{
 		der.setLayout(new BoxLayout(der, BoxLayout.Y_AXIS));
 		der.add(mov);
 		der.add(ay);
+		der.add(ti);
 		setTitle("Puzzle 15");
         setResizable(false);
         add(puz,BorderLayout.CENTER);
