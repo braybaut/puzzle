@@ -11,7 +11,21 @@ class Puzzle:
         self.position = None
 
     def main_frame(self):
+        print ('Tablero inicial')
         d = self.items
+        print('+-----+-----+-----+-----+')
+        print('|%s|%s|%s|%s|' % (d[1], d[2], d[3], d[4]))
+        print('+-----+-----+-----+-----+')
+        print('|%s|%s|%s|%s|' % (d[5], d[6], d[7], d[8]))
+        print('+-----+-----+-----+-----+')
+        print('|%s|%s|%s|%s|' % (d[9], d[10], d[11], d[12]))
+        print('+-----+-----+-----+-----+')
+        print('|%s|%s|%s|%s|' % (d[13], d[14], d[15], d[16]))
+        print('+-----+-----+-----+-----+')
+
+    def main_frame2(self):
+        print ('Tablero Final')
+        d = self.items2
         print('+-----+-----+-----+-----+')
         print('|%s|%s|%s|%s|' % (d[1], d[2], d[3], d[4]))
         print('+-----+-----+-----+-----+')
@@ -41,6 +55,7 @@ class Puzzle:
         self.position = to
 
     def build_board_manual(self):
+        print ("Tablero inicial")
         i = 1
         while i < 17:
             pos = input("Digite el número que va en la posición {} \n".format(i))
@@ -61,6 +76,7 @@ class Puzzle:
                 print("i: {}".format(i))
 
     def final_build_board_manual(self):
+        print ("Tablero Final")
         i = 1
         while i < 17:
             pos = input("Digite el número que va en la posición {} \n".format(i))
@@ -162,7 +178,10 @@ while flag2:
             break
         else:
             board()
+            os.system('clear')
             g.final_build_board_manual()
+            #g.main_frame2()
+            #input=('Enter para continuar')
             os.system('clear')
             break
     except:
@@ -170,6 +189,7 @@ while flag2:
         os.system('clear')
 #g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
+g.main_frame2()
 init_time = time.time()
 print('Presiona  0 Para salir')
 while True:
@@ -187,6 +207,7 @@ while True:
         print('Movimiento incorrecto')
     else:
         g.change(x)
+    g.main_frame2()
     g.main_frame()
     if g.game_over():
         end_time = time.time()
