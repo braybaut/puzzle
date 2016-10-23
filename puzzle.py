@@ -7,6 +7,7 @@ from random import randint
 class Puzzle:
     def __init__(self):
         self.items = {}
+        self.items2 = {}
         self.position = None
 
     def main_frame(self):
@@ -58,6 +59,27 @@ class Puzzle:
             except:
                 print("número invalido tipo {} en {}".format(pos, i))
                 print("i: {}".format(i))
+
+    def final_build_board_manual(self):
+        i = 1
+        while i < 17:
+            pos = input("Digite el número que va en la posición {} \n".format(i))
+            try:
+                pos = int(pos)
+                if pos > 0 and pos < 17:
+                    if pos == 16:
+                        self.items2[i] = '     '
+                        self.position = i
+                    else:
+                        self.items2[i] = self.format(str(pos))
+                    i += 1
+                else:
+                    print("número invalido rango {} en {}".format(pos, i))
+                    print("i: {}".format(i))
+            except:
+                print("número invalido tipo {} en {}".format(pos, i))
+                print("i: {}".format(i))
+
 
     def build_board(self, difficulty):
         for i in range(1, 17):
@@ -140,6 +162,7 @@ while flag2:
             break
         else:
             board()
+            g.final_build_board_manual()
             os.system('clear')
             break
     except:
