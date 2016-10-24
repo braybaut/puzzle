@@ -162,7 +162,14 @@ class Puzzle:
                 break
         return flag
 
-
+    def game_over_manual(self):
+        flag = False
+        if self.items == self.items2:
+            flag = True
+            return flag
+        else:
+            flag = False
+            return flag
 os.system('clear')
 g = Puzzle()
 
@@ -189,7 +196,9 @@ while flag2:
         os.system('clear')
 #g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
-g.main_frame2()
+if option == '1':
+    g.main_frame2()
+
 init_time = time.time()
 print('Presiona  0 Para salir')
 while True:
@@ -207,11 +216,20 @@ while True:
         print('Movimiento incorrecto')
     else:
         g.change(x)
-    g.main_frame2()
+    if option == '1':
+        g.main_frame2()
     g.main_frame()
-    if g.game_over():
-        end_time = time.time()
-        print('Ganaste')
-        total_time = end_time - init_time
-        print("Tiempo total: {} segundos".format(total_time))
-        break
+    if option == '1':
+        if g.game_over_manual():
+            end_time = time.time()
+            print('Ganaste')
+            total_time = end_time - init_time
+            print("Tiempo total: {} segundos".format(total_time))
+            break
+    else:
+        if g.game_over():
+            end_time = time.time()
+            print('Ganaste')
+            total_time = end_time - init_time
+            print("Tiempo total: {} segundos".format(total_time))
+            break
