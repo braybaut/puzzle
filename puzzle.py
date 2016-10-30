@@ -180,6 +180,10 @@ while flag2:
     try:
         board=typeboard[option]
         if option=='2':
+            boardf=input("Tablero final: 1 si quiere automatico, 2 si quiere manual")
+            if boardf =='2':
+                print ("manual")
+                g.final_build_board_manual()
             board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
             os.system('clear')
             break
@@ -196,7 +200,7 @@ while flag2:
         os.system('clear')
 #g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
-if option == '1':
+if option == '1' or boardf == '2':
     g.main_frame2()
 
 init_time = time.time()
@@ -216,10 +220,10 @@ while True:
         print('Movimiento incorrecto')
     else:
         g.change(x)
-    if option == '1':
+    if option == '1' or boardf == '2':
         g.main_frame2()
     g.main_frame()
-    if option == '1':
+    if option == '1' or boardf=='2':
         if g.game_over_manual():
             end_time = time.time()
             print('Ganaste')
