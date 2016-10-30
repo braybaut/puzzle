@@ -180,10 +180,17 @@ while flag2:
     try:
         board=typeboard[option]
         if option=='2':
-            boardf=input("Tablero final: 1 si quiere automatico, 2 si quiere manual")
-            if boardf =='2':
-                print ("manual")
-                g.final_build_board_manual()
+            flag3 = True
+            while flag3:
+                boardf=input("Tablero final: 1 si quiere automatico, 2 si quiere manual")
+                if boardf =='2':
+                    print ("manual")
+                    g.final_build_board_manual()
+                    break
+                elif boardf == '1':
+                    break
+                else:
+                    print ("opcion incorrecta vuelva a intentar")
             board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
             os.system('clear')
             break
