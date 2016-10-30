@@ -10,6 +10,9 @@ class Puzzle:
         self.items2 = {}
         self.position = None
 
+    def cls(self):
+        os.system('cls' if os.name=='nt' else 'clear')
+
     def main_frame(self):
         print ('Tablero inicial')
         d = self.items
@@ -170,9 +173,10 @@ class Puzzle:
         else:
             flag = False
             return flag
-os.system('clear')
-g = Puzzle()
+#g.cls()
 
+g = Puzzle()
+g.cls()
 typeboard = {'1': g.build_board_manual, '2': g.build_board}
 flag2 = True
 while flag2:
@@ -192,19 +196,19 @@ while flag2:
                 else:
                     print ("opcion incorrecta vuelva a intentar")
             board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
-            os.system('clear')
+            g.cls()
             break
         else:
             board()
-            os.system('clear')
+            g.cls()
             g.final_build_board_manual()
             #g.main_frame2()
             #input=('Enter para continuar')
-            os.system('clear')
+            g.cls()
             break
     except:
         input('opcion incorrecta vuelva a intentar')
-        os.system('clear')
+        g.cls()
 #g.build_board(int(input('Ingresa nivel de dificultad: 0 1 2\n2 ''=> Mas alto     0=> Mas bajo\n')))
 g.main_frame()
 if option == '1' or boardf == '2':
